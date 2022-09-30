@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Share Referal Code</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Referal Code sharing</h1>
+    <p>Please Wait .....</p>
+</body>
+
+</html>
+
+<script>
+    window.onload = function() {
+        // var androidPackage = "com.mypicpop";
+        var AppURL = 'myUniqueScheme://myapp';
+        var DownloadURL = 'http://myapp.com/download';
+
+        if (
+            navigator.userAgent.match(/Android/) ||
+            navigator.userAgent.match(/Chrome/)
+        ) {
+            window.location.href =
+                "intent://myapp/#Intent;scheme=myUniqueScheme;package=com.mypicpop;end";
+            setTimeout(function() {
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                if (/android/i.test(userAgent)) {
+                    window.location.href = "market://details?id=com.mypicpop&hl=en&referCode=<%= referCode %>";
+
+
+                    console.log("market://details?id=com.mypicpop&hl=en&referCode=<%= referCode %>");
+                } else {
+                    window.location.href =
+                        "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.mypicpop";
+                }
+            }, 2000);
+        }
+        window.location.href = 'com.mypicpop://details?referCode=<%=referCode %>';
+        if (window.navigator.userAgent.indexOf('iPhone') != -1) {
+            window.location.href = 'com.mypicpop://details?referCode=<%=referCode %>';
+            if (window.navigator.standalone == true) {
+                window.location = 'com.mypicpop://details?referCode=<%=referCode %>';
+            } else {
+                //  document.write("please save this to your home screen");
+            }
+        } else {
+            window.location.href =
+                "https://play.app.goo.gl/?link=https://play.google.com/store/apps/details?id=com.mypicpop";
+        }
+    };
+</script>

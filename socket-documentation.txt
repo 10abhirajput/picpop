@@ -1,0 +1,369 @@
+base url=http://202.164.42.227:8887
+base url =https://app.mypicspop.com/api
+///////////// connect user ///////////////////////////////
+
+eventname=>connect_user
+
+listner=>connect_listener
+
+{
+"userId":"150"
+}
+
+////////////////////////// send message for text message///////////////////////
+
+
+eventname=>send_message
+
+listner=>new_message
+
+
+parameter=>
+{
+  "senderId":"183",
+  "receiverId":"184",
+  "messageType":"0", // (1:image,2:video msg,0 :normal)
+  "message":"hello"
+}
+
+response=>
+
+{
+  "id": 786,
+  "senderId": 8,
+  "receiverId": 7,
+  "chatConstantId": 78,
+  "groupId": 0,
+  "message": "hello",
+  "readStatus": 0,
+  "messageType": 0,
+  "deletedId": 0,
+  "created": 1615445372,
+  "updated": 1615445372,
+  "senderName": "yash",
+  "senderImage": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+  "recieverImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png",
+  "recieverName": "Satvinder singh"
+}
+
+
+
+  ////////////////////////get message /////////////////////////////
+
+
+  eventname=>get_message
+
+  listner=>get_data_message
+
+  parameter=>
+  {
+    "senderId":"150",
+    "receiverId":"151"
+    
+  }
+  
+response=>
+[
+  {
+    "id": 775,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615444546,
+    "updated": 1615444546,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 776,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615444639,
+    "updated": 1615444639,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 777,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615444657,
+    "updated": 1615444657,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 778,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615444675,
+    "updated": 1615444675,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 779,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615444680,
+    "updated": 1615444680,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 780,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445144,
+    "updated": 1615445144,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 781,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445192,
+    "updated": 1615445192,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 782,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445237,
+    "updated": 1615445237,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 783,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445254,
+    "updated": 1615445254,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 784,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445323,
+    "updated": 1615445323,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 785,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445339,
+    "updated": 1615445339,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  },
+  {
+    "id": 786,
+    "senderId": 8,
+    "receiverId": 7,
+    "chatConstantId": 78,
+    "groupId": 0,
+    "message": "hello",
+    "readStatus": 1,
+    "messageType": 0,
+    "deletedId": 0,
+    "created": 1615445372,
+    "updated": 1615445372,
+    "recieverName": "yash",
+    "image": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "senderName": "Satvinder singh",
+    "senderImage": "c5207e39-bc7f-422d-a9c0-f1733af193d0.png"
+  }
+]
+
+
+
+  //////////////// chat listing /////////////////////////
+
+
+
+eventname=>chat_listing
+
+  listner=>chat_message
+
+  parameter=>
+  {
+    "userId":"150"
+  }
+
+  response=>
+
+[
+  {
+    "id": 78,
+    "senderId": 8,
+    "receiverId": 7,
+    "groupId": 0,
+    "lastMessageId": 786,
+    "deletedId": 0,
+    "created": 1615444546,
+    "updated": 1615444546,
+    "user_id": 8,
+    "lastMessage": "hello",
+    "userName": "yash",
+    "userImage": "2eb32d7d-0fd1-495b-9d05-b92fcf072e42.png",
+    "created_at": 1615445372,
+    "messageType": 0,
+    "isOnline": 1,
+    "unreadcount": 0
+  }
+]
+
+
+///////////// block user
+
+eventname=>block_user
+
+  listner=>block_data
+
+  parameter=>
+  {
+  "userId":"23",
+  "user2Id":"25",
+  "status":"1"
+}
+
+  response=>
+{
+  "block_data": "1",
+  "userId": "23"
+}
+
+
+///////////////// delete_chat ///////////
+
+
+eventname=>delete_chat
+
+  listner=>cleared_chat
+
+  parameter=>
+{
+    "senderId":"203",
+    "receiverId":"205"
+    
+  }
+
+  response=>
+{
+  "success_message": "chat cleared successfully"
+}
+
+
+
+///////////////// report_user ///////////
+
+
+eventname=>report_user
+
+  listner=>report_data
+
+  parameter=>
+{
+  "userId":"23",
+  "user2Id":"26"
+}
+
+  response=>
+{
+  "success_message": "Report Added Successfully"
+}

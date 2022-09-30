@@ -1,0 +1,161 @@
+<div class="card">
+    <div class="card-body">
+        <ul class="nav nav-pills" id="myTab3" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active show" id="home-tab3" data-toggle="tab" href="#home3" role="tab"
+                    aria-controls="home" aria-selected="true">My Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#profile3" role="tab"
+                    aria-controls="profile" aria-selected="false">Bank Account</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent2">
+            <div class="tab-pane fade active show" id="home3" role="tabpanel" aria-labelledby="home-tab3">
+
+
+
+
+
+
+                <form class="profile_setting_from" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Name</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="name"
+                                        value="<%= admin.vendorDetail.name; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Email</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="email" class="form-control" name="email" value="<%= admin.email; %>"
+                                        disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Phone</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="phone"
+                                        value="<%= admin.vendorDetail.phone; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title"
+                                    class="form-control-label col-sm-3 text-md-right">Country</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="country"
+                                        value="<%= admin.vendorDetail.country; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">State</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="state"
+                                        value="<%= admin.vendorDetail.state; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">City</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="city"
+                                        value="<%= admin.vendorDetail.city; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Image</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <div id="image-preview" class="image-preview"
+                                        style="background-image: url('<%= admin.vendorDetail.image; %>'); background-size: cover; background-position: center center;">
+                                        <label for="image-upload" id="image-label">Choose File</label>
+                                        <input type="file" name="image" id="image-upload" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" class="form-control" name="redirectUrl" value="/sellerAdmin/setting"
+                                required>
+
+                        </div>
+                        <div class="card-footer bg-whitesmoke text-md-right">
+                            <input type="hidden" name="id" value="<%= admin.id; %>" />
+                            <input type="hidden" name="role" value="<%= admin.role; %>" />
+                            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="tab-pane fade" id="profile3" role="tabpanel" aria-labelledby="profile-tab3">
+                <form class="profile_setting_from" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Bank
+                                    Name</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="bankName"
+                                        value="<%= admin.vendorDetail.bankName; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Account Holder
+                                    Name</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="accountHolderName"
+                                        value="<%= admin.vendorDetail.accountHolderName; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Account
+                                    Number</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="accountNumber"
+                                        value="<%= admin.vendorDetail.accountNumber; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">IFSC Swift
+                                    Code</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <input type="text" class="form-control" name="ifscSwiftCode"
+                                        value="<%= admin.vendorDetail.ifscSwiftCode; %>">
+                                </div>
+                            </div>
+
+                            <div class="form-group row align-items-center">
+                                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Bank
+                                    Address</label>
+                                <div class="col-sm-6 col-md-9">
+                                    <textarea class="form-control" style="min-height: 100px;"
+                                        name="bankAddress"><%= admin.vendorDetail.bankAddress; %></textarea>
+                                </div>
+                            </div>
+
+                            <input type="hidden" class="form-control" name="redirectUrl" value="/sellerAdmin/setting"
+                                required>
+
+                        </div>
+                        <div class="card-footer bg-whitesmoke text-md-right">
+                            <input type="hidden" name="id" value="<%= admin.id; %>" />
+                            <input type="hidden" name="role" value="<%= admin.role; %>" />
+                            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

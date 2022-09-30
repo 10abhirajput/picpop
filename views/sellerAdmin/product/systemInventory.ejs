@@ -1,0 +1,42 @@
+<br />
+<div class="table-responsive">
+    <table class="table table-striped table-md datatable">
+        <thead>
+            <tr>
+                <%
+                          if (headerColumnsSystemInventory.length > 0) {
+                            headerColumnsSystemInventory.forEach((column, index) => {
+                        %>
+                <th <%- column == 'Action' ? 'style="width: 200px !important;"' : ''; %>"><%- column; %></th>
+                <%
+                            });
+                        %>
+
+                <%
+                          }
+                        %>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                      if (dataSystemInventory.length > 0) {
+                        dataSystemInventory.forEach(row => {
+                    %>
+            <tr>
+                <%
+                        if (row.length > 0) {
+                          row.forEach(column => {
+                      %>
+                <td><%- column; %></td>
+                <%
+                          });
+                        }
+                      %>
+            </tr>
+            <%
+                        });
+                      }
+                    %>
+        </tbody>
+    </table>
+</div>

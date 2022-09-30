@@ -1,0 +1,142 @@
+<%- include('../partials/header'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body ">
+
+      <div id="output-status"></div>
+      <div class="row">
+        <div class="col-md-4 animate__animated   ">
+          <div class="card">
+            <div class="card-header">
+              <h4>Jump To</h4>
+            </div>
+            <div class="card-body">
+              <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active show" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                    aria-controls="profile" aria-selected="true">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="globalDeliveryChargeForDeliveryStaff-tab" data-toggle="tab"
+                      href="#siteCommission" role="tab" aria-controls="siteCommission" aria-selected="false">Site
+                      Commission [USD]</a>
+                  </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="charges-tab" data-toggle="tab" href="#charges" role="tab"
+                    aria-controls="charges" aria-selected="false">Charges</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="referralSystem-tab" data-toggle="tab" href="#referralSystem" role="tab"
+                    aria-controls="charges" aria-selected="false">Referral System</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="promoCode-tab" data-toggle="tab" href="#promoCode" role="tab"
+                    aria-controls="promoCode" aria-selected="false">Promo Code</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="tax-tab" data-toggle="tab" href="#tax" role="tab" aria-controls="tax"
+                    aria-selected="false">Tax</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="notificationEmail-tab" data-toggle="tab" href="#notificationEmail" role="tab"
+                    aria-controls="notificationEmail" aria-selected="false">Notification Email</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="globalDeliveryChargeForSeller-tab" data-toggle="tab"
+                    href="#globalDeliveryChargeForSeller" role="tab" aria-controls="globalDeliveryChargeForSeller"
+                    aria-selected="false">Global Delivery Charge For Seller</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="globalDeliveryChargeForDeliveryStaff-tab" data-toggle="tab"
+                    href="#globalDeliveryChargeForDeliveryStaff" role="tab"
+                    aria-controls="globalDeliveryChargeForDeliveryStaff" aria-selected="false">Global Delivery Charge
+                    For Delivery Staff</a>
+                </li> -->
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 ">
+          <div class="tab-content no-padding" id="myTab2Content">
+            <div class="tab-pane fade active show animate__animated   " id="profile" role="tabpanel"
+              aria-labelledby="profile-tab">
+              <%- include('./profile') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="siteCommission" role="tabpanel"
+              aria-labelledby="siteCommission-tab">
+              <%- include('./siteCommission') %>
+            </div>
+            
+            <div class="tab-pane fade animate__animated   " id="referralSystem" role="tabpanel"
+              aria-labelledby="referralSystem-tab">
+              <%- include('./referralSystem') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="promoCode" role="tabpanel"
+              aria-labelledby="promoCode-tab">
+              <%- include('./promoCode') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="tax" role="tabpanel" aria-labelledby="tax-tab">
+              <%- include('./tax') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="notificationEmail" role="tabpanel"
+              aria-labelledby="notificationEmail-tab">
+              <%- include('./notificationEmail') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="globalDeliveryChargeForSeller" role="tabpanel"
+              aria-labelledby="globalDeliveryChargeForSeller-tab">
+              <%- include('./globalDeliveryChargeForSeller') %>
+            </div>
+
+            <div class="tab-pane fade animate__animated   " id="globalDeliveryChargeForDeliveryStaff" role="tabpanel"
+              aria-labelledby="globalDeliveryChargeForDeliveryStaff-tab">
+              <%- include('./globalDeliveryChargeForDeliveryStaff') %>
+            </div>
+
+            
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+  
+    $(document.body).on('click', '.delete_row', function (e) {
+      e.preventDefault
+
+      let rows = $('.content_container').attr('rows');
+      if (parseInt(rows) > 0) {
+        $('.content_container').attr('rows', parseInt(rows) - 1);
+      }
+
+      console.log('here');
+      console.log($(this).closest('div.single_row_container'));
+      $(this).closest('div.single_row_container').remove();
+    });
+
+  });
+</script>

@@ -1,0 +1,88 @@
+<%- include('../partials/header'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body ">
+
+      <div id="output-status"></div>
+      <div class="row">
+        <div class="col-md-4 animate__animated   ">
+          <div class="card">
+            <div class="card-header">
+              <h4>Jump To</h4>
+            </div>
+            <div class="card-body">
+              <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active show" id="myAccount-tab" data-toggle="tab" href="#myAccount" role="tab"
+                    aria-controls="myAccount" aria-selected="true">My Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="myCredit-tab" data-toggle="tab" href="#myCredit" role="tab"
+                    aria-controls="myCredit" aria-selected="true">My Credit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="changePassword-tab" data-toggle="tab" href="#changePassword" role="tab"
+                    aria-controls="changePassword" aria-selected="true">Change Password</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="changeEmail-tab" data-toggle="tab" href="#changeEmail" role="tab"
+                    aria-controls="changeEmail" aria-selected="true">Change Email</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 ">
+          <div class="tab-content no-padding" id="myTab2Content">
+            <div class="tab-pane fade active show animate__animated   " id="myAccount" role="tabpanel"
+              aria-labelledby="myAccount-tab">
+              <%- include('./myAccount') %>
+            </div>
+            
+            <div class="tab-pane fade animate__animated   " id="myCredit" role="tabpanel"
+              aria-labelledby="myCredit-tab">
+              <%- include('./myCredit') %>
+            </div>
+            
+
+            <div class="tab-pane fade animate__animated   " id="changePassword" role="tabpanel"
+              aria-labelledby="changePassword-tab">
+              <%- include('./changePassword') %>
+            </div>
+            
+
+            <div class="tab-pane fade animate__animated   " id="changeEmail" role="tabpanel"
+              aria-labelledby="changeEmail-tab">
+              <%- include('./changeEmail') %>
+            </div>
+            
+            
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+
+
+  });
+</script>

@@ -1,0 +1,53 @@
+<form class="updateSettings" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Referral System Setting</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Enable/Disable Referral System</label>
+                <div class="input-group">
+                    <div class="form-group">
+                        <label class="custom-switch mt-2">
+                          <input type="checkbox" name="enable_disable_promo_code" class="custom-switch-input" <%= settings['enable_disable_promo_code'] == 1 ? 'checked' : ''; %> >
+                          <span class="custom-switch-indicator"></span>
+                          <!-- <span class="custom-switch-description">I agree with terms and conditions</span> -->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Referral Reward Points for Drivers</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="referral_reward_points_for_drivers"
+                        value="<%= settings['referral_reward_points_for_drivers']; %>" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Referral Signup Bonus for Drivers</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="referral_signup_bonus_for_drivers"
+                        value="<%= settings['referral_signup_bonus_for_drivers']; %>" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="moduleName" value="Referral System Setting" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>

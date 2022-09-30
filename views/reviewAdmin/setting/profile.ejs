@@ -1,0 +1,53 @@
+<form id="profile_setting_from" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Profile Setting</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group row align-items-center">
+                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Name</label>
+                <div class="col-sm-6 col-md-9">
+                    <input type="text" class="form-control" name="name" value="<%= admin.adminDetail.name; %>">
+                </div>
+            </div>
+
+            <div class="form-group row align-items-center">
+                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Email</label>
+                <div class="col-sm-6 col-md-9">
+                    <input type="email" class="form-control" name="email" value="<%= admin.email; %>">
+                </div>
+            </div>
+
+            <!-- <div class="form-group row align-items-center">
+                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Password</label>
+                <div class="col-sm-6 col-md-9">
+                    <input type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password"
+                      autocomplete="new-password">
+                      <div id="pwindicator" class="pwindicator">
+                          <div class="bar"></div>
+                          <div class="label"></div>
+                      </div>
+                </div>
+            </div> -->
+
+
+            <div class="form-group row align-items-center">
+                <label for="site-title" class="form-control-label col-sm-3 text-md-right">Image</label>
+                <div class="col-sm-6 col-md-9">
+                    <div id="image-preview" class="image-preview" style="background-image: url('<%= admin.adminDetail.image; %>'); background-size: cover; background-position: center center;">
+                        <label for="image-upload" id="image-label">Choose File</label>
+                        <input type="file" name="image" id="image-upload" />
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="id" value="<%= admin.id; %>" />
+            <input type="hidden" name="role" value="<%= admin.role; %>" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>

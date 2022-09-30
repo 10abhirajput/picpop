@@ -1,0 +1,1751 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Swagger Doc For Picspop app",
+      "version": "1.0.0",
+      "title": "Swagger Doc For Picspop app",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "apiteam@swagger.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+        "/file_upload": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Upload files",
+                "description": "Upload files",
+                "operationId": "file_upload",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/file_upload"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+      "/user_signup": {
+        "post": {
+            "tags": [
+                "User"
+            ],
+            "summary": "User Signup",
+            "description": "User Signup",
+            "operationId": "user_signup",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/user_signup"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/user_signup"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+      
+      "/add_location_profile": {
+        "post": {
+            "tags": [
+                "Location Owners"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "location complete profile ",
+            "description": "location complete profile",
+            "operationId": "add_location_profile",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/add_location_profile"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/add_location_profile"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+      "/edit_location_profile": {
+        "post": {
+            "tags": [
+                "Location Owners"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "edit location profile ",
+            "description": "edit location profile",
+            "operationId": "edit_location_profile",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/edit_location_profile"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/edit_location_profile"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+
+      "/edit_business_prof": {
+        "post": {
+            "tags": [
+                "Business Prof"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "edit_business_prof ",
+            "description": "edit_business_prof",
+            "operationId": "edit_business_prof",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/edit_business_prof"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/edit_business_prof"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+      "/delete_profile": {
+        "delete": {
+            "tags": [
+                "User"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "delete_profile ",
+            "description": "delete_profile",
+            "operationId": "delete_profile",
+            "responses": {}
+        }  
+      },
+      "/serviceOrLocationDelete": {
+        "post": {
+            "tags": [
+                "User"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "service Or Location Delete ",
+            "description": "service Or Location Delete",
+            "operationId": "serviceOrLocationDelete",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/serviceOrLocationDelete"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/serviceOrLocationDelete"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+
+      "/bookings_chat_details": {
+        "post": {
+            "tags": [
+                "User"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "bookings_chat_details ",
+            "description": "bookings_chat_details",
+            "operationId": "bookings_chat_details",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/bookings_chat_details"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/bookings_chat_details"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+      "/add_business_profile": {
+        "post": {
+            "tags": [
+                "Business Prof"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+            "summary": "add business profile ",
+            "description": "add business profile",
+            "operationId": "add_business_profile",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/add_business_profile"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/add_business_profile"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+      },
+      "/social_login": {
+        "post": {
+            "tags": [
+                "Auth"
+            ],
+            "summary": "Add a new user social",
+            "description": "Add a new user social",
+            "operationId": "social_login",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/social_login"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/social_login"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {}
+        }
+    },
+        "/user_login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Login",
+                "description": "User Login",
+                "operationId": "user_login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_login"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user_login"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/forgot_password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Forgot Password",
+                "description": "Forgot Password",
+                "operationId": "forgot_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/forgot_password"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/forgot_password"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/notification_on_off": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Notification On Off",
+                "description": "Notification On Off",
+                "operationId": "notification_on_off",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/notification_on_off"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/notification_on_off"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/delete_image": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Delete Image",
+                "description": "Delete Image",
+                "operationId": "delete_image",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/delete_image"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/delete_image"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/addCard": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Add Card",
+                "description": "Add Card",
+                "operationId": "addCard",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addCard"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/addCard"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/add_remove_fav": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "add or remove_fav",
+                "description": "add or remove fav",
+                "operationId": "add_remove_fav",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_remove_fav"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_remove_fav"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/booking": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Booking",
+                "description": "Booking",
+                "operationId": "booking",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/booking"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/booking"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/change_password": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "Change password",
+                "description": "Change password",
+                "operationId": "change_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/change_password"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/category_details": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Category Details",
+                "description": "Category Details",
+                "operationId": "category_details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/category_details"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/category_details"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/add_review": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "summary": "add review",
+                "description": "add review",
+                "operationId": "add_review",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_review"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/add_review"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/profile": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "profile ",
+                "description": "profile",
+                "operationId": "profile",
+                "responses": {}
+            }  
+          },
+          "/get_category_list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                
+                "summary": "Get Category List ",
+                "description": "Get Category List",
+                "operationId": "get_category_list",
+                "responses": {}
+            }  
+          },
+          "/getCardList": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+              "summary": "get Card List",
+              "description": "get Card List",
+              "operationId": "getCardList",
+      
+              "responses": {}
+            }
+          },
+          "/location_details": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Location Details ",
+                "description": "Location Details",
+                "operationId": "location_details",
+                "responses": {}
+            }  
+          },
+          "/my_booking": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "My Booking ",
+                "description": "My Booking",
+                "operationId": "my_booking",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/my_booking"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/my_booking"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }  
+          },
+          "/jobRequestDetail": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "My Booking Detail",
+                "description": "My Booking Detail",
+                "operationId": "jobRequestDetail",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/jobRequestDetail"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/jobRequestDetail"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }  
+          },
+          "/myServicesOrLocations": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "My Services Or Locations",
+                "description": "My Services Or Locations",
+                "operationId": "myServicesOrLocations",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/myServicesOrLocations"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/myServicesOrLocations"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }  
+          },
+          "/myServiceOrLocationDetail": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "My Services Or Locations Detail",
+                "description": "My Services Or Locations Detail",
+                "operationId": "myServiceOrLocationDetail",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/myServiceOrLocationDetail"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/myServiceOrLocationDetail"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }  
+          },
+          "/jobReqAcceptOrReject": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "My Booking or jobReq status",
+                "description": "My Booking or jobReq status",
+                "operationId": "jobReqAcceptOrReject",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/jobReqAcceptOrReject"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/jobReqAcceptOrReject"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }  
+          },
+          "/notification_list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                  "summary": "Notification List ",
+                  "description": "Notification List",
+                  "operationId": "notification_list",
+                "responses": {}
+            }
+          },
+        "/edit_profile": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+                "summary": "Edit profile",
+                "description": "Edit profile",
+                "operationId": "edit_profile",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        },
+                        "application/xml": {
+                            "schema": {
+                                "$ref": "#/components/schemas/edit_profile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+          },
+          
+          "/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                      "Bearer": []
+                    }
+                  ],
+              "summary": "Logout",
+              "description": "Logout",
+              "operationId": "logout",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/logout"
+                    }
+                  },
+                  "application/xml": {
+                    "schema": {
+                      "$ref": "#/components/schemas/logout"
+                    }
+                  }
+                },
+                "required": true
+              },
+              "responses": {}
+            }
+          },
+       
+      "/home": {
+        "post": {
+          "tags": [
+              "User"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/home"
+                    }
+                },
+                "application/xml": {
+                    "schema": {
+                        "$ref": "#/components/schemas/home"
+                    }
+                }
+            },
+            "required": false
+        },
+        "responses": {}
+      } 
+  },
+      "/favourites_list": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+          "summary": "Favourites List",
+          "description": "Favourites List",
+          "operationId": "favourites_list",
+  
+          "responses": {}
+        }
+      },
+      "/notification_on_off_status": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+            "security": [
+                {
+                  "Bearer": []
+                }
+              ],
+          "summary": "notification_on_off_status",
+          "description": "notification_on_off_status",
+          "operationId": "notification_on_off_status",
+  
+          "responses": {}
+        }
+      },
+      "/user_term": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+          "summary": "Terms And Condition",
+          "description": "Terms And Condition",
+          "operationId": "user_term",
+  
+          "responses": {}
+        }
+      },
+      "/user_privacy": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+          "summary": "Privacy",
+          "description": "Privacy",
+          "operationId": "user_privacy",
+  
+          "responses": {}
+        }
+      },
+      "/user_about_us": {
+        "get": {
+            "tags": [
+                "User"
+            ],
+          "summary": "About Us",
+          "description": "About Us",
+          "operationId": "user_about_us",
+  
+          "responses": {}
+        }
+      }
+     
+    
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    },
+    "servers": [
+      {
+        "url": "http://192.168.1.196:7807/api"
+      },
+      {
+        "url": "https://mypicspop.com/api"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+          }
+    },
+      "schemas": {
+        "file_upload": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "image"
+                    ],
+                    "required": true,
+                    "default": "image"
+                },
+                "folder": {
+                    "type": "string",
+                    "enum": [
+                        "user",
+                        "locationOwnerDetailImage",
+                        "businessImage"
+                    ],
+                    "required": true,
+                    "default": "user"
+                },
+                "image": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "binary"
+                    }
+                }
+            }
+        },
+        "user_signup": {
+          "type": "object",
+          "required": [],
+          "properties": {
+              "firstName": {
+                  "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+            },
+              "email": {
+                  "type": "string"
+              },
+              "country_code": {
+                "type": "string"
+            },
+              "phone": {
+                "type": "number"
+            },
+            "roolType": {
+                "type": "number"
+            },
+            "location": {
+                "type": "string"
+            },
+            "latitude": {
+                "type": "string"
+            },
+            "longitude": {
+                "type": "string"
+            },
+              "password": {
+                  "type": "string"
+              },
+              "image": {
+                  "type": "string"
+              },
+              "device_token": {
+                  "type": "string",
+                  "description": "1 for ios, 2 for android"
+              },
+              "device_type": {
+                  "type": "number"
+              }
+          
+          }
+      },
+
+      "social_login": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            
+            "email": {
+                "type": "string"
+            },
+            "roolType": {
+                "type": "number"
+            },
+            "device_token": {
+                "type": "string",
+                "description": "1 for ios, 2 for android"
+            },
+            "device_type": {
+                "type": "number"
+            },
+            "socialId": {
+                "type": "string"
+            },
+            "socialType": {
+                "type": "number",
+                "description": "1 for google, 2 for fb, 3 for apple"
+            },
+            "country_code": {
+              "type": "string"
+          },
+            "phone": {
+              "type": "number"
+          },
+          
+          "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+      },
+            "image": {
+                "type": "string"
+            }
+        }
+    },
+      
+    "booking": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "serviceProviderId": {
+                "type": "string"
+            },
+            "categoryId": {
+              "type": "number"
+          },
+            "locationOwnerId": {
+                "type": "string"
+            },
+            "serviceProviderPrice": {
+                "type": "string"
+            },
+            "locationPrice": {
+                "type": "string"
+            },
+            "cardId": {
+                "type": "number"
+            },
+            "cvc": {
+                "type": "string"
+            },
+            "location": {
+              "type": "string"
+          },
+          "lat": {
+              "type": "string"
+          },
+          "lng": {
+              "type": "string"
+          },
+          "startBookingDate": {
+            "type": "string"
+        },
+        "endBookingDate": {
+            "type": "string"
+        }
+        
+        
+        }
+    },
+    
+    "add_location_profile": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "profile_image": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "adress": {
+                "type": "string"
+            },
+            "PricePerDay": {
+              "type": "number"
+          },
+            "offers": {
+                "type": "number"
+            },
+            "offrerPrice": {
+              "type": "number"
+          },
+            "about": {
+              "type": "string"
+          },
+          "country_code": {
+              "type": "string"
+          },
+          "loc_phone": {
+            "type": "number"
+        },
+        "loc_email": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "latitude": {
+            "type": "string"
+        },
+        "longitude": {
+            "type": "string"
+        }
+        
+        }
+    },
+
+    "addCard": {
+        "type": "object",
+        "required": [],
+        "properties": {
+           
+            "cardHolderName": {
+                "type": "string"
+            },
+            "cardNumber": {
+                "type": "string"
+            },
+            "expiryMonth": {
+                "type": "string"
+            },
+            "expiryYear": {
+              "type": "string"
+          },
+          "isDefault": {
+            "type": "number"
+        }
+        
+        }
+    },
+
+    "edit_location_profile": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "profile_image": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "locationId": {
+                "type": "number"
+            },
+            "adress": {
+                "type": "string"
+            },
+            "PricePerDay": {
+              "type": "number"
+          },
+            "offers": {
+                "type": "number"
+            },
+            "offrerPrice": {
+              "type": "number"
+          },
+            "about": {
+              "type": "string"
+          },
+          "country_code": {
+              "type": "string"
+          },
+          "loc_phone": {
+            "type": "number"
+        },
+        "location": {
+            "type": "string"
+        },
+        "latitude": {
+            "type": "string"
+        },
+        "longitude": {
+            "type": "string"
+        }
+        
+        }
+    },
+
+    "serviceOrLocationDelete": {
+        "type": "object",
+        "required": [],
+        "properties": {
+           
+            "jobId": {
+                "type": "number"
+            },
+            "role": {
+                "type": "number"
+            }
+           
+          
+        }
+    },
+
+    "bookings_chat_details": {
+        "type": "object",
+        "required": [],
+        "properties": {
+           
+            "senderId": {
+                "type": "number"
+            },
+            "receiverId": {
+                "type": "number"
+            },
+            "role": {
+                "type": "number"
+            }
+           
+          
+        }
+    },
+    "add_business_profile": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "profile_image": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "businessName": {
+                "type": "string"
+            },
+            "categoryId": {
+                "type": "number"
+            },
+            "adress": {
+                "type": "string"
+            },
+            "PricePerService": {
+              "type": "number"
+            },
+            "latitude": {
+                "type": "string"
+            },
+            "longitude": {
+                "type": "string"
+            },
+            "offerWeek": {
+               "type": "number"
+            },
+            "offersPrice": {
+                "type": "number"
+            },
+            "business_phone": {
+                "type": "number"
+            },
+            "business_email": {
+                "type": "string"
+            },
+            "about": {
+              "type": "string"
+          },
+          "country_code": {
+              "type": "string"
+          }
+        
+        }
+    },
+    "edit_business_prof": {
+        "type": "object",
+        "required": [],
+        "properties": {
+            "profile_image": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "businessName": {
+                "type": "string"
+            },
+            "businessId": {
+                "type": "number"
+            },
+            "categoryId": {
+                "type": "number"
+            },
+            "adress": {
+                "type": "string"
+            },
+            "PricePerService": {
+              "type": "number"
+            },
+            "latitude": {
+                "type": "string"
+            },
+            "longitude": {
+                "type": "string"
+            },
+            "offerWeek": {
+               "type": "number"
+            },
+            "offersPrice": {
+                "type": "number"
+            },
+            "business_phone": {
+                "type": "number"
+            },
+            "business_email": {
+                "type": "string"
+            },
+            "about": {
+              "type": "string"
+          },
+          "country_code": {
+              "type": "string"
+          }
+        
+        }
+    },
+        "user_login": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "roolType": {
+                    "type": "number"
+                },
+                "device_token": {
+                    "type": "string",
+                    "description": "1 for ios, 2 for android"
+                },
+                "device_type": {
+                    "type": "number"
+                }
+            }
+        },
+        "logout": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "deviceToken": {
+                "type": "string"
+              },
+              "deviceType": {
+                "type": "string"
+              }
+            }
+          },
+          "home": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "radius": {
+                "type": "string"
+              },
+              
+              "price": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "string"
+              }
+            }
+          },
+        "forgot_password": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "roolType": {
+                    "type": "string"
+                }
+            }
+        },
+        "notification_on_off": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "delete_image": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "image_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "add_remove_fav": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "jobId": {
+                    "type": "number"
+                },
+                "jobRole": {
+                    "type": "number"
+                }
+            }
+        },
+        "category_details": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "categoryId": {
+                    "type": "number"
+                }
+            }
+        },
+        "my_booking": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                
+                "action": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "number"
+                },
+                "currend_date": {
+                    "type": "string"
+                }
+            }
+          },
+          "jobRequestDetail": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                
+                "jobReqID": {
+                    "type": "number"
+                },
+                "role": {
+                    "type": "number"
+                }
+            }
+          },
+          "myServicesOrLocations": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                
+                "role": {
+                    "type": "number"
+                }
+            }
+          },
+          "myServiceOrLocationDetail": {
+            "type": "object",
+            "required": [],
+            "properties": {
+
+                "ServiceOrLocationId": {
+                    "type": "number"
+                },
+                "role": {
+                    "type": "number"
+                }
+            }
+          },
+          "jobReqAcceptOrReject": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                
+                "jobReqID": {
+                    "type": "number"
+                },
+                "role": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "status2": {
+                    "type": "string"
+                }
+            }
+          },
+        "change_password": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "new_password": {
+                    "type": "string"
+                }
+            }
+        },
+        "add_review": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "userId": {
+                    "type": "number"
+                },
+                "rating": {
+                    "type": "number"
+                },
+                "role": {
+                    "type": "number"
+                },
+                "review": {
+                    "type": "string"
+                }
+            }
+        },
+        "edit_profile": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+              },
+                "email": {
+                    "type": "string"
+                },
+                "country_code": {
+                  "type": "string"
+              },
+                "phone": {
+                  "type": "number"
+              },
+              "location": {
+                  "type": "string"
+              },
+              "latitude": {
+                  "type": "string"
+              },
+              "longitude": {
+                  "type": "string"
+              },
+                "password": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "device_token": {
+                    "type": "string",
+                    "description": "1 for ios, 2 for android"
+                },
+                "device_type": {
+                    "type": "number"
+                }
+            
+            }
+        },
+        "notification_list": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+        },
+        "getCardList": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+        "get_category_list": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+        
+          "location_details": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+        "favourites_list": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+          "notification_on_off_status": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+        "user_term": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+          "user_privacy": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          },
+          "user_about_us": {
+            "type": "object",
+            "required": false,
+            "properties": {}
+          }
+
+
+      }
+    }
+  }

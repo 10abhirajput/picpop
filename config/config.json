@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "dbuser",
+    "password": "cqlsys123",
+    "database": "picpop",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "picpop",
+    "password": "rGNuYbj6TXfHCZcG",
+    "database": "picpop",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "picpop",
+    "password": "rGNuYbj6TXfHCZcG",
+    "database": "picpop",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+

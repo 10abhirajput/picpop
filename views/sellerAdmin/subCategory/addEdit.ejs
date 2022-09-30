@@ -1,0 +1,80 @@
+<%- include('../partials/header'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1 id="animated_box"><%= currentModule; %></h1>
+        </div>
+
+        <div class="section-body animate__animated  animate__backInUp">
+
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><%= currentSubModule %></h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="userAddEditForm" class="form_advanced_validation"
+                                action="/<%= prefixBaseName; %>/<%= modelBaseName; %>/addUpdate" method="POST"
+                                autocomplete="off" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-cube"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="name"
+                                            value="<%= row && row.name; %>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label> Category</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-list"></i>
+                                            </div>
+                                        </div>
+                                        <select name="categoryId" class="form-control select2" required>
+                                            <option value="">Select Category</option>
+                                            <% categories.forEach(category => { %>
+                                            <option value="<%= category.id; %>"
+                                                <%= row && row.categoryId == category.id ? 'selected' : ''; %>>
+                                                <%= category.name; %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <% if (row) { %>
+                                <input type="hidden" class="form-control" name="id" value="<%= row && row.id; %>"
+                                    required>
+                                <% } %>
+                                <input type="hidden" class="form-control" name="redirectUrl"
+                                    value="/<%= prefixBaseName; %>/<%= modelBaseName; %>" required>
+
+                                <div class="form-group row mb-4">
+                                    <div class="col-sm-12 col-md-7 offset-4">
+                                        <button type="submit"
+                                            class="btn btn-primary"><%= row ? 'Update' : 'Submit'; %></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+<%- include('../partials/footer'); %>

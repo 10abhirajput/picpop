@@ -1,0 +1,156 @@
+<%- include('../partials/header'); %>
+
+<% console.log(row, '================>row'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1 id="animated_box"><%= currentModule; %></h1>
+        </div>
+
+        <div class="section-body animate__animated  animate__backInUp">
+
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><%= currentSubModule %></h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="userAddEditForm" class="form_advanced_validation"
+                                action="/<%= prefixBaseName; %>/<%= modelBaseName; %>/addUpdate" method="POST"
+                                autocomplete="off" enctype="multipart/form-data">
+
+
+                                <div class="form-group">
+                                    <label> Restaurant Type </label>
+                                    <div class="input-group">
+                                        <select name="restaurantTypeId" class="form-control select2"
+                                            <%= page && page == 'view' ? 'disabled' : '' %> required>
+                                            <option value="">Select Restaurant Type</option>
+                                            <% restaurantTypes.forEach(restaurantType => { %>
+                                            <option value="<%= restaurantType.id; %>"
+                                                <%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('restaurantTypeId') && row.restaurantDetail.restaurantTypeId == restaurantType.id ? 'selected' : ''; %>>
+                                                <%= restaurantType.name; %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label> Food Type </label>
+                                    <div class="input-group">
+                                        <select name="foodTypeId" class="form-control select2"
+                                            <%= page && page == 'view' ? 'disabled' : '' %> required>
+                                            <option value="">Select Food Type</option>
+                                            <% foodTypes.forEach(foodType => { %>
+                                            <option value="<%= foodType.id; %>"
+                                                <%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('foodTypeId') && row.restaurantDetail.foodTypeId == foodType.id ? 'selected' : ''; %>>
+                                                <%= foodType.name; %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-cube"></i>
+                                            </div>
+                                        </div> -->
+                                        <input type="text" class="form-control" name="name"
+                                            value="<%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('name') ? row.restaurantDetail.name : ''; %>"
+                                            <%= page && page == 'view' ? 'disabled' : '' %> required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Cover Image</label>
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                          <i class="fas fa-image"></i>
+                                        </div>
+                                      </div> -->
+                                        <div id="image-preview" class="image-preview"
+                                            style="background-image: url(<%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('coverImage') ? row.restaurantDetail.coverImage : '/uploads/default/default_image.jpg'; %>); background-size: cover; background-position: center center;">
+                                            <% 
+                                                if (page && page != 'view') {
+                                            %>
+                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <input type="file" name="coverImage" id="image-upload" />
+                                            <%
+                                                } 
+                                            
+                                            %>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                          <i class="fas fa-cube"></i>
+                                        </div>
+                                      </div> -->
+                                        <textarea class="form-control" name="description" style="min-height: 100px;"
+                                            <%= page && page == 'view' ? 'disabled' : '' %>
+                                            required><%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('description') ? row.restaurantDetail.description : ''; %></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-cube"></i>
+                                            </div>
+                                        </div> -->
+                                        <input type="text" class="form-control" name="address"
+                                            value="<%= row && row.hasOwnProperty('restaurantDetail') && row.restaurantDetail.hasOwnProperty('address') ? row.restaurantDetail.address : ''; %>"
+                                            <%= page && page == 'view' ? 'disabled' : '' %> required>
+                                    </div>
+                                </div>
+
+                                <% if (row) { %>
+                                <input type="hidden" class="form-control" name="id" value="<%= row && row.id; %>"
+                                    required>
+                                <% } %>
+                                <input type="hidden" class="form-control" name="redirectUrl"
+                                    value="/<%= prefixBaseName; %>/<%= modelBaseName; %>" required>
+
+                                <div class="form-group row mb-4">
+                                    <div class="col-sm-12 col-md-7 offset-4">
+                                        <% 
+                                            if (page && page != 'view') {
+                                        %>
+                                        <button type="submit"
+                                            class="btn btn-primary"><%= row ? 'Update' : 'Submit'; %></button>
+                                        <%
+                                            } 
+                                        
+                                        %>
+                                        <button type="button" class="btn btn-secondary cancel_btn">Back</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+<%- include('../partials/footer'); %>

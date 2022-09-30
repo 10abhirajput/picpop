@@ -1,0 +1,522 @@
+<%- include('../partials/header'); %>
+
+<%
+  console.log(user, '=-----------------------------------------user123')
+  
+
+
+  const roleBasedField = {
+    1: {
+      name: user.hasOwnProperty('userDetail') && user.userDetail.hasOwnProperty('name') ? user.userDetail.name : '',
+      name: user.hasOwnProperty('userDetail') && user.userDetail.hasOwnProperty('image') ? user.userDetail.image : '',
+    },
+    2: {
+      name: user.hasOwnProperty('locationOwnerDetail') && user.locationOwnerDetail.hasOwnProperty('name') ? user.locationOwnerDetail.name : '', 
+      name: user.hasOwnProperty('locationOwnerDetail') && user.locationOwnerDetail.hasOwnProperty('PricePerDay') ? user.locationOwnerDetail.PricePerDay : '',   
+    },
+    3: {
+      name: user.hasOwnProperty('businessProfessionalDetail') && user.businessProfessionalDetail.hasOwnProperty('name') ? user.businessProfessionalDetail.name : '',      
+    }
+  };
+
+  
+%>
+
+<style>
+  /* body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+} */
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 40%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 40%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 40%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+</style>
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body animate__animated  animate__backInUp">
+
+      <div class="row">
+        <div class="col-12 offset-0">
+          <div class="card">
+            <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div>
+            <div class="card-body">
+              <form id="userAddEditForm" class="form_advanced_validation" action="/admin/user/addUpdateUser" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+                <div class="container emp-profile">
+                  <form method="post">
+                      <div class="row">
+                          <div class="col-md-4">  
+                              <div class="profile-img">
+                                <% if(user.role == '1'){ %>
+                                  <img src="<%= user.userDetail.image %>" alt=""/>
+                                <% } else if(user.role == '2'){ %>
+                                  <img src="<%= user.userDetail.image %>" alt=""/>
+                                <% } else if(user.role == '3'){ %>
+                                  <img src="<%= user.userDetail.image %>" alt=""/>
+                                <% } %>
+                             
+                                  <!-- <div class="file btn btn-lg btn-primary">s
+                                      Change Photo
+                                      <input type="file" name="file"/>
+                                  </div> -->
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="profile-head">
+                                         
+                                         
+                                              <% if(user.role == '1'){ %>
+                                                <h6>User</h6>
+                                              <% } else if(user.role == '2'){ %>
+                                                <h6>Location Owner</h6>
+                                              <% } else if(user.role == '3'){ %>
+                                                  <h6>Business Professional</h6>
+                                              <% } %>
+                                          
+                                          <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                      <li class="nav-item">
+                                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                      </li>
+                                      <!-- <li class="nav-item">
+                                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Other Details</a>
+                                      </li> -->
+                                  </ul>
+                              </div>
+                          </div>
+                       
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                          </div>  
+                          <div class="col-md-8">
+                              <% if(user.role == '1'){ %>
+
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <label>Name</label>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <p><%= user.userDetail.name %>  <%= user.userDetail.lastName %></p>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <label>Email</label>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <p><%= user.email %></p>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <label>Phone</label>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <p><%= user.phone %></p>
+                                                  </div>
+                                              </div>
+                                              <!-- <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Address</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%= user.userDetail.adress %></p>
+                                                </div>
+                                            </div> -->
+                                             
+                                              <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Location</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><%= user.userDetail.location %></p>
+                                                </div>
+                                            </div>
+                                  </div>
+                                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                                  </div>
+                              </div>
+
+
+
+
+                              <% }else if(user.role == '2'){ %>
+
+
+
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.userDetail.name %>  <%= user.userDetail.lastName %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.email %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Phone</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.phone %></p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                      <div class="col-md-6">
+                                          <label>Address</label>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <p><%= user.userDetail.adress %></p>
+                                      </div>
+                                  </div> -->
+                                   
+                                    <!-- <div class="row">
+                                      <div class="col-md-6">
+                                          <label>Location</label>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <p><%= user.userDetail.location %></p>
+                                      </div>
+                                  </div> -->
+                                  </div>
+                                  <!--  -->
+                              </div> </div> </div>
+                              <div class="main-content">
+                                <section class="section">
+                                  <!-- <div class="section-header">
+                                    <h1 id="animated_box">Location Owner Detail</h1>
+                                  </div> -->
+                              
+                                  <div class="section-body">
+                              
+                                    <div class="row">
+                                      <div class="col-12">
+                                        <div class="card">
+                                          <div class="card-header">
+                                            <h4><%= currentSubModule %></h4>
+                                          </div>
+                                          <div class="card-body">
+                                            <div class="table-responsive">
+                                              <table class="table table-striped table-md" >
+                                                <thead>
+                                                  <tr>
+                                                    <th class="text-center">
+                                                      #
+                                                    </th>
+                                                    <th>Location Name</th>
+                                                    <th>Adress</th>
+                                                    <th>Location</th>
+                                                    <th>Price PerDay</th>
+                                                    <th>Offrer Price</th>
+                                                    
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <% 
+                                                  let count = 1;
+                                                  data.forEach((data) => { %>
+                                                    <tr>
+                                                      <td><%= count %></td>
+                                                      <td><%= data.locationName %></td>
+                                                      <td><%= data.adress %></td>
+                                                      <td><%= data.location %></td>
+                                                      <td><%= data.PricePerDay %></td>
+                                                      <td><%= data.offrerPricePerDay %></td>
+                                                      
+                                                    </tr>
+                                                    <% count++  }) %>  
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              
+                                </section>
+                              </div>
+
+                              <% }else if(user.role == '3'){ %>
+                                <div class="tab-content profile-tab" id="myTabContent">
+                                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.userDetail.name %>  <%= user.userDetail.lastName %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.email %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Phone</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.phone %></p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                      <div class="col-md-6">
+                                          <label>Address</label>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <p><%= user.userDetail.adress %></p>
+                                      </div>
+                                  </div> -->
+                                   
+                                    <!-- <div class="row">
+                                      <div class="col-md-6">
+                                          <label>Location</label>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <p><%= user.userDetail.location %></p>
+                                      </div>
+                                  </div> -->
+                                  </div>
+                                  
+                              </div> </div> 
+                              <div class="main-content">
+                                <section class="section">
+                                  <!-- <div class="section-header">
+                                    <h1 id="animated_box">Location Owner Detail</h1>
+                                  </div> -->
+                              
+                                  <div class="section-body">
+                              
+                                    <div class="row">
+                                      <div class="col-12">
+                                        <div class="card">
+                                          <div class="card-header">
+                                            <h4><%= currentSubModule %></h4>
+                                          </div>
+                                          <div class="card-body">
+                                            <div class="table-responsive">
+                                              <table class="table table-striped table-md" >
+                                                <thead>
+                                                  <tr>
+                                                    <th class="text-center">
+                                                      #
+                                                    </th>
+                                                    <th>Business Name</th>
+                                                    <th>Category</th>
+                                                    <th>Adress</th>
+                                                    <th>Location</th>
+                                                    <!-- <th>Price PerDay</th>
+                                                    <th>Offrer Price</th> -->
+                                                    
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <% 
+                                                  let count = 1;
+                                                  businessProf.forEach((businessProf) => { %>
+                                                    <tr>
+                                                      <td><%= count %></td>
+                                                  
+                                                      <td><%= businessProf.businessName %></td>
+                                                      <td><%= businessProf.category.name %></td>
+                                                      <td><%= businessProf.adress %></td>
+                                                      <td><%= businessProf.location %></td>
+                                                      <!-- <td><%= businessProf.pricePerService %></td>
+                                                      <td><%= businessProf.offerPrice %></td> -->
+                                                      
+
+
+
+                                                    </tr>
+                                                    <% count++  }) %>  
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              
+                                </section>
+                              </div>
+                              <% } %>
+                          </div>
+                      </div>
+                  </form>           
+              </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+    <!-- <section class="section"> -->
+    <!-- <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div> -->
+
+    <!-- <div class="section-body">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card"> -->
+            <!-- <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div> -->
+            <!-- <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-md datatable">
+                  <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Class</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <td>Abhishedk</td>
+                    <td>1st</td>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section> -->
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+
+
+  });
+</script>

@@ -1,0 +1,141 @@
+<%
+
+/*
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| All Modules Feteched from "config/modules.js" File
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|
+*/
+
+%>
+
+<%= console.log(adminData, '=======>adminData'); %>
+
+<%- include('../partials/header'); %>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1 id="animated_box"><%= currentModule; %></h1>
+          </div>
+          <div class="row">
+
+            <%
+                let j = 0; // for colors
+                let k = 0; // for polarity of animation
+                let l = 0; // for animation
+                if (modules[moduleRoles[adminData.role]] && typeof modules[moduleRoles[adminData.role]] === 'object' && Object.keys(modules[moduleRoles[adminData.role]]).length > 0) {
+                    let polarity = true;
+                    for (let i in modules[moduleRoles[adminData.role]]) {
+                        const module = modules[moduleRoles[adminData.role]][i];
+                        let jIncremented = false;
+
+                        if (colorClasses.length == j) j = 0;
+                        if (module.hasOwnProperty('dashboard') && module.dashboard) {
+                            if (adminData.role == 3 || (adminData.role == 3 && adminData.vendorDetail.hasOwnProperty('permissions') && adminData.vendorDetail.permissions.hasOwnProperty(i) && Array.isArray(permissions[i]) && permissions[i].length > 0) ) {
+                                
+                                console.log(colorClasses[j], '============>colorClasses[j]');
+                                console.log(j, '==========================>j');
+
+                                console.log(polarity, '===========================>polarity');
+                                
+                                if (module.hasOwnProperty('dashboardLink') || module.hasOwnProperty('link') && typeof module.link == 'string') {
+                                  k++;
+                                
+                                  if (k > 4) {
+                                    polarity = !polarity;
+                                    k = 0;
+                                  }
+                      %>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                  <a href="<%= module.hasOwnProperty('dashboardLink') ? module.dashboardLink : module.hasOwnProperty('link') ? module.link : 'javascript:void(0)'; %>" >
+                                    <div class="card card-statistic-1 animate__animated <%= polarity ? (l%2 == 0  ? 'animate__backInUp' : 'animate__backInDown') : (l%2 != 0  ? 'animate__backInUp' : 'animate__backInDown'); %>">
+                                      <div class="card-icon bg-<%= colorClasses[j]; %>">
+                                        <i class="<%= module.hasOwnProperty('icon') && module.icon; %>"></i>
+                                      </div>
+                                      <div class="card-wrap">
+                                        <div class="card-header">
+                                          <h4><%= module.hasOwnProperty('title') && module.title; %></h4>
+                                        </div>
+                                        <div class="card-body">
+                                          <div class="counter" current-count="0" data-target="<%= module.hasOwnProperty('count') && module.count && typeof(module.count) == 'string' && getCounts.hasOwnProperty(module.count) ? getCounts[module.count] : module.hasOwnProperty('count') && module.count && typeof(module.count) == 'number' ? module.count : 1  %>">0</div>
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>   
+
+                      <% 
+                            l++;
+                          } else if (module.hasOwnProperty('link') && typeof module.link == 'object' && Array.isArray(module.link) && module.link.length > 0) {
+
+                            module.link.forEach((linkSubmodule, linkSubmoduleIndex) => {
+                              if (linkSubmodule.hasOwnProperty('dashboard') && linkSubmodule.dashboard) {
+                                if (colorClasses.length == j) j = 0;
+                                k++;
+                                
+                                if (k > 4) {
+                                  polarity = !polarity;
+                                  k = 0;
+                                }
+                                console.log(linkSubmodule, '===============================================================================>linkSubmodule');
+                      %>
+                
+                                  <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                    <a href="<%= linkSubmodule.hasOwnProperty('link') ? linkSubmodule.link : 'javascript:void(0)'; %>" >
+                                      <div class="card card-statistic-1 animate__animated <%= polarity ? (l%2 == 0  ? 'animate__backInUp' : 'animate__backInDown') : (l%2 != 0  ? 'animate__backInUp' : 'animate__backInDown'); %>">
+                                        <div class="card-icon bg-<%= colorClasses[j]; %>">
+                                          <i class="<%= linkSubmodule.hasOwnProperty('icon') ? linkSubmodule.icon : module.hasOwnProperty('icon') ? module.icon : ''; %>"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                          <div class="card-header">
+                                            <h4><%= linkSubmodule.hasOwnProperty('dashboardTitle') ? linkSubmodule.dashboardTitle : linkSubmodule.hasOwnProperty('title') && linkSubmodule.title; %></h4>
+                                          </div>
+                                          <div class="card-body">
+                                            <% 
+                                              console.log(getCounts[linkSubmodule.count], '===================================>etCounts[linkSubmodule.count]')  %>
+                                            <div class="counter" current-count="0" data-target="<%= 
+                                            
+                                            linkSubmodule.hasOwnProperty('count') 
+                                            
+                                            ?
+                                            
+                                            linkSubmodule.hasOwnProperty('count') && linkSubmodule.count && typeof(linkSubmodule.count) == 'string' && getCounts.hasOwnProperty(linkSubmodule.count) ? getCounts[linkSubmodule.count] : linkSubmodule.hasOwnProperty('count') && linkSubmodule.count && typeof(linkSubmodule.count) == 'number' ? linkSubmodule.count : 1 
+
+                                            :
+                                            
+                                            module.hasOwnProperty('count') && module.count && typeof(module.count) == 'string' && getCounts.hasOwnProperty(module.title.toLowerCase()) ? getCounts[module.title.toLowerCase()] : module.hasOwnProperty('count') && module.count && typeof(module.count) == 'number' ? module.count : 1; %>">0</div>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </a>
+                                  </div>   
+                                
+                      <%              
+                                l++;
+                                j++;
+                                jIncremented = true;
+                              }
+                            });   
+                            
+                            console.log(getCounts, '============>getCounts');
+                          }
+                          
+                        }
+                      }
+                      !jIncremented && j++; 
+                    } 
+                } 
+            %>
+                     
+
+
+          </div>
+        </section>
+      </div>
+
+<%- include('../partials/footer'); %>

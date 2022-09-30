@@ -1,0 +1,21 @@
+node_modules/
+# config/config.json
+codeAdmin/node_modules
+codeAdmin/build
+public/uploads/user/
+public/uploads/category/
+public/uploads/businessImage/
+public/images/
+public/uploads/locationOwnerDetailImage/
+public/uploads/business/
+public/uploads/banner/
+public/uploads/chat/
+config/config.json/
+
+
+
+# To untrack local changes
+# git update-index --assume-unchanged config/config.json
+
+# To reverse it (if you ever want to commit changes to it), use:
+# git update-index --no-assume-unchanged

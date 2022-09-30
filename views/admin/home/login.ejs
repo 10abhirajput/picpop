@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title><%= appName; %> | Login</title>
+
+  <!-- Favicon-->
+  <link rel="icon" href="<%= appFavUrl %>" type="image/x-icon">
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="/node_modules_url/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="/node_modules_url/izitoast/dist/css/iziToast.min.css">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+</head>
+<style>
+  .section>*:first-child {
+    margin-top: 0px !important;
+  }
+</style>
+
+<body>
+  <div id="overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div id="app">
+    <section class="section">
+      <!-- <div class="col-lg-12 col-12 min-vh-100 background-walk-y"
+        data-background="../assets/img/unsplash/andre-benz-1214056-unsplash.jpg"
+        style="z-index: -1 !important; background-image: url(&quot;../assets/img/unsplash/andre-benz-1214056-unsplash.jpg&quot;);"> -->
+
+        <br />
+        <br />
+        <br />
+        <div class="container" style="z-index: 1 !important;">
+          <div class="row">
+            <div
+              class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 mt-5">
+              <div class="login-brand">
+                <img id="brand_logo_login" src="<%= appLogoUrl %>" alt="logo" width="250px" class="shadow-light"
+                  style="background-color: rgba(255,255,255,0.4);">
+              </div>
+
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h4><%= appName; %> Login</h4>
+                </div>
+
+                <div class="card-body">
+                  <form method="POST" action="/admin/loginSubmit" class="needs-validation" novalidate="">
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                      <div class="invalid-feedback">
+                        Please fill in your email
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="d-block">
+                        <label for="password" class="control-label">Password</label>
+                        <!-- <div class="float-right">
+                          <a href="auth-forgot-password.html" class="text-small">
+                            Forgot Password?
+                          </a>
+                        </div> -->
+                      </div>
+                      <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                      <div class="invalid-feedback">
+                        please fill in your password
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                        Login
+                      </button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="simple-footer">
+                Copyright &copy; <%= copyrightYear; %> <div class="bullet"></div> <a
+                  href="<%= companyUrl; %>"><%= companyName; %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+    </section>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="/assets/js/stisla.js"></script>
+
+
+  <!-- JS Libraies -->
+  <script src="/node_modules_url/simpleweather/jquery.simpleWeather.min.js"></script>
+  <script src="/node_modules_url/chart.js/dist/Chart.min.js"></script>
+  <script src="/node_modules_url/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="/node_modules_url/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="/node_modules_url/summernote/dist/summernote-bs4.js"></script>
+  <script src="/node_modules_url/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="/node_modules_url/izitoast/dist/js/iziToast.min.js"></script>
+  <script src="/node_modules_url/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="/node_modules_url/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/node_modules_url/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+  <script src="/node_modules_url/jquery.pwstrength/jquery.pwstrength.min.js"></script>
+  <script src="/node_modules_url/select2/dist/js/select2.full.min.js"></script>
+  <script src="/node_modules_url/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="/node_modules_url/selectric/public/jquery.selectric.min.js"></script>
+  <script src="/node_modules_url/jquery_upload_preview/assets/js/jquery.uploadPreview.min.js"></script>
+
+  <!-- Template JS File -->
+  <script src="/assets/js/scripts.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+  <!-- Page Specific JS File -->
+</body>
+
+</html>
+
+<script>
+  const htmlDecode = (input) => {
+    var e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
+
+  console.log('customJS==================================================>here');
+
+  let flashMessage = JSON.parse(htmlDecode("<%= JSON.stringify(flashMessage) %>"));
+  console.log(flashMessage, '==================================>flashMessage');
+
+  if (Array.isArray(flashMessage) && flashMessage.length > 0 && typeof flashMessage[0] == 'object' && !Array.isArray(flashMessage[0])) {
+    flashMessage = flashMessage[0];
+
+    iziToast[flashMessage.color]({
+      title: flashMessage.message,
+      // message: '',
+      position: 'topRight'
+    });
+  } else if (Array.isArray(flashMessage) && flashMessage.length > 0 && typeof flashMessage[0] == 'string') {
+    flashMessage = flashMessage[0];
+
+    iziToast.info({
+      title: flashMessage,
+      // message: '',
+      position: 'topRight'
+    });
+  }
+</script>

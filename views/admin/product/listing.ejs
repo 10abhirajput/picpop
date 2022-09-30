@@ -1,0 +1,54 @@
+<%- include('../partials/header'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div>
+            <div class="card-body">
+              <ul class="nav nav-pills" id="myTab3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active show" id="home-tab3" data-toggle="tab" href="#system_inventory" role="tab"
+                    aria-controls="home" aria-selected="true">System Inventory</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#my_inventory" role="tab"
+                    aria-controls="profile" aria-selected="false">My Inventory</a>
+                </li> -->
+              </ul>
+
+              <div class="tab-content" id="myTabContent2">
+                <div class="tab-pane fade active show" id="system_inventory" role="tabpanel" aria-labelledby="home-tab3">
+                  <%- include('./systemInventory') %>
+                </div>
+                <div class="tab-pane fade" id="my_inventory" role="tabpanel" aria-labelledby="home-tab3">
+                  <%- //include('./myInventory') %>                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+  });
+</script>

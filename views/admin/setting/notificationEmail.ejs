@@ -1,0 +1,27 @@
+<form class="updateSettings" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Notification Email</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Notification Email</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="notification_email"
+                        value="<%= settings['notification_email']; %>" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="moduleName" value="Notification Email Setting" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>

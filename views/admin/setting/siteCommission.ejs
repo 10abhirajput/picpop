@@ -1,0 +1,82 @@
+<form class="updateSiteComission" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Site Commission [USD]</h4>
+        </div>
+        <div class="card-body">
+            <div class="content_container" rows="1" counter="1" >
+                <div class="row">
+                        <div class="col-3 col-md-3 col-lg-3">
+                                <label>Commission</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control" name="comission"
+                                            value="<%= siteComissions && siteComissions.length > 0 ? siteComissions[0].comission : '' %>" required>
+                                    </div>
+                                </div>
+                            </div>
+                    <!-- <div class="col-3 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label>Minimum Value</label>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-sort-amount-down"></i>
+                                    </div>
+                                </div>
+                                <input type="number" min="0" class="form-control" name="minimum"
+                                    value="<%= siteComissions && siteComissions.length > 0 ? siteComissions[0].minimum : '' %>" required>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-3 col-md-3 col-lg-3">
+                        <label>Maximum Value</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-sort-amount-up"></i>
+                                    </div>
+                                </div>
+                                <input type="number" min="1" class="form-control" name="maximum"
+                                    value="<%= siteComissions && siteComissions.length > 0 ? siteComissions[0].maximum : '' %>" required>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="col-3 col-md-3 col-lg-3">
+                        <%
+                            if (siteComissions && siteComissions.length > 0) {
+                        %>
+                            <input type="hidden" class="form-control" name="id" value="<%= siteComissions && siteComissions.length > 0 ? siteComissions[0].id : '' %>" required>
+                        <%
+                            }
+                        %>
+                    </div>
+                </div>
+
+                <!-- <%- siteComissionHTML; %> -->
+                
+            </div>
+
+            <!-- <div class="row">
+                
+                
+                <a href="javascript:void(0)" class="btn btn-icon btn-primary add_commission_row" style="width: calc(75% + 55px);"><i
+                        class="fas fa-plus"></i></a>
+            </div> -->
+
+        </div>
+    </div>
+    <div class="card-footer bg-whitesmoke text-md-right">
+        <input type="hidden" name="moduleName" value="Site Comission" />
+        <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+    </div>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+<form class="updateSettings" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Charges Setting</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Maximum Site Commission [USD]</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="maximum_site_commission"
+                        value="<%= settings['maximum_site_commission']; %>" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Global Delivery Charge For Seller</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="global_delivery_charge_for_seller"
+                        value="<%= settings['global_delivery_charge_for_seller']; %>" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Global Delivery Charge For Delivery Staff</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="global_delivery_charge_for_delivery_staff"
+                        value="<%= settings['global_delivery_charge_for_delivery_staff']; %>" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="moduleName" value="Charges Setting" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>

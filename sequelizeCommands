@@ -1,0 +1,4 @@
+sequelize-auto -h localhost -d database name -u username -x password --dialect mysql -c config/config.json -o models -t ,tablename, -C
+
+
+sequelize-auto -h localhost -d lyft_beauty -u dbuser -x cqlsys123 --dialect mysql -c config/config.json -o models -t ,users, -C

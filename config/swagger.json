@@ -1,0 +1,1426 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "title": "picspop",
+      "description": "picspop api documentation",
+      "version": "1.0"
+  },
+  "produces": [
+      "application/json"
+  ],
+  "host": "192.168.1.132:7800",
+  "basePath": "",
+  "paths": {
+      
+    "/api/profile": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "profile",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "get user's details by token or by userId",
+            "parameters": [
+                {
+                    "name": "security_key",
+                    "in": "header",
+                    "description": "security key",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "Authorization",
+                    "in": "header",
+                    "description": "Authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "/api/completeProfile": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "completeProfile",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Registration step number 2 and 3",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "firstName",
+                    "in": "formData",
+                    "description": "firstName is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "lastName",
+                    "in": "formData",
+                    "required": true,
+                    "description": "lastName is required",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "gender",
+                    "in": "formData",
+                    "description": "1 - MALE, 2 - FEMALE, 3 - OTHERS",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "location",
+                    "in": "formData",
+                    "description": "OPTIONAL [long, lat]",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "address",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "profilePic",
+                    "in": "formData",
+                    "description": "{'original' : '', 'thumbnail' : ''}",
+                    "type": "object",
+                    "value": ""
+                },
+                {
+                    "name": "proofDocument",
+                    "in": "formData",
+                    "description": "{'original' : '', 'thumbnail' : ''}",
+                    "type": "object",
+                    "value": ""
+                },
+                {
+                    "name": "step",
+                    "in": "formData",
+                    "description": "2 for USER and CAREGIVER, 3 only for CAREGIVER",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "role",
+                    "in": "formData",
+                    "description": "1 = USER, 2 = CAREGIVER",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/editProfile": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "editProfile",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Edit current user's profile",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "firstName",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "lastName",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "gender",
+                    "in": "formData",
+                    "description": "OPTIONAL [1 - MALE, 2 - FEMALE, 3 - OTHERS]",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "location",
+                    "in": "formData",
+                    "description": "OPTIONAL [long, lat]",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "address",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "profilePic",
+                    "in": "formData",
+                    "description": "{'original' : '', 'thumbnail' : ''}",
+                    "type": "object",
+                    "value": ""
+                },
+                {
+                    "name": "proofDocument",
+                    "in": "formData",
+                    "description": "{'original' : '', 'thumbnail' : ''}",
+                    "type": "object",
+                    "value": ""
+                },
+                {
+                    "name": "role",
+                    "in": "formData",
+                    "description": "OPTIONAL [1 = USER, 2 = CAREGIVER]",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "deviceType",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "deviceToken",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "phone",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "countryCode",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "isoValue",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "isAvailable",
+                    "in": "formData",
+                    "type": "string",
+                    "enum": [
+                        "true","false"
+                    ],
+                    "value": "true"
+                },
+                {
+                    "name": "stripeToken",
+                    "in": "formData",
+                    "description": "OPTIONAL [stripe customer token]",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    }    ,     
+
+    "/api/updatePhoneNumber": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "updatePhoneNumber",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en",
+                        "ar"
+                    ]
+                },
+                {
+                    "name": "newCountryCode",
+                    "in": "formData",
+                    "description": "newCountryCode is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "newPhoneNumber",
+                    "in": "formData",
+                    "description": "newPhoneNumber is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "isoValue",
+                    "in": "formData",
+                    "description": "isoValue",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "step",
+                    "in": "formData",
+                    "description": "step is required [1 - to send otp to new phone number, 2 - to update new phone number]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "otp",
+                    "in": "formData",
+                    "description": "otp is required in case of step=2",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/getUserProfile": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "getUserProfile",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "get user's details by token or by userId",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "userId",
+                    "in": "query",
+                    "description": "OPTIONAL [Api will return data by Authorization Token if no userId provided]",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/logout": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "logout",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Logout - Remove accessToken and deviceToken from db",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/listCategory": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "listCategory",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Category List",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "keyword",
+                    "in": "query",
+                    "description": "OPTOINAL [keyword to search to category]",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/categoryDetails": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "categoryDetails",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Category details by Id",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "categoryId",
+                    "in": "query",
+                    "description": "categoryId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/listOffersByCategory": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "listOffersByCategory",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Offers List By Category Id",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "categoryId",
+                    "in": "query",
+                    "description": "categoryId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/sendBookingRequest": {
+        "post": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "sendBookingRequest",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Send request to all nearby caregivers",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "date",
+                    "in": "formData",
+                    "description": "date is required [yyyy-mm-dd]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "fromTime",
+                    "in": "formData",
+                    "description": "fromTime is required [hh:mm A]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "toTime",
+                    "in": "formData",
+                    "description": "toTime is required [hh:mm A]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "categoryId",
+                    "in": "formData",
+                    "description": "categoryId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "message",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "gender",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "promoCode",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/bookingRequestList": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "bookingRequestList",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "get bookings list by type",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "type",
+                    "in": "query",
+                    "description": "1 - All received booking requests(not accepted yet), 2 - all accepted requests, 3 - user's sent request(s), 4 - All past bookings(caregiver)",
+                    "type": "string",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "count",
+                    "in": "query",
+                    "description": "count - for pagination [only for type 1,2 and 4]",
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "lastId",
+                    "in": "query",
+                    "description": "lastId - for pagination [only for type 1,2 and 4]",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/myBookingsListByType": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "myBookingsListByType",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "get user's bookings list by type (past, ongoing, upcoming)",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "type",
+                    "in": "query",
+                    "description": "1 - past bookings, 2 - ongoing bookings, 3 - upcoming bookings",
+                    "type": "string",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "count",
+                    "in": "query",
+                    "description": "count - for pagination",
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "lastId",
+                    "in": "query",
+                    "description": "lastId - for pagination",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/acceptRejectBookingRequest": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "acceptRejectBookingRequest",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Accept / Reject booking request",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "bookingRequestId",
+                    "in": "formData",
+                    "description": "bookingRequestId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "type",
+                    "in": "formData",
+                    "description": "bookingRequestId is required [1 - caregiver is accepting, 2 - caregiver is rejecting , 3 - caregiver arrived, 4 - caregiver starting service, 5 - caregiver marking booking as complete, 6 - user is rejecting/cancelling, 7 - movingTowardsUserLocation]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "cancellationReason",
+                    "in": "formData",
+                    "description": "OPTIONAL [only in case of type='6']",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/rescheduleBooking": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "rescheduleBooking",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Reschedule booking request",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "date",
+                    "in": "formData",
+                    "description": "date is required [yyyy-mm-dd]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "fromTime",
+                    "in": "formData",
+                    "description": "fromTime is required [hh:mm A]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "toTime",
+                    "in": "formData",
+                    "description": "toTime is required [hh:mm A]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "bookingRequestId",
+                    "in": "formData",
+                    "description": "bookingRequestId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    
+
+    "/api/saveCard": {
+        "post": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "saveCard",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Api to save card",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "stripeToken",
+                    "in": "formData",
+                    "description": "stripeToken is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/cardlisting": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "cardlisting",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Api to get saved card",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                }
+            ],
+            "responses": {}
+        }
+    },
+    "/api/removeCard": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "removeCard",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Remove saved card",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "cardId",
+                    "in": "query",
+                    "description": "cardId is required",
+                    "type": "string",
+                    "required": true,
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+    "/api/holdAPayment": {
+        "post": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "holdAPayment",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Api to hold an amount",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "token",
+                    "in": "formData",
+                    "description": "token is required [tok_1GVauIGZAqwyhEMvTI2XDkjh]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "bookingId",
+                    "in": "formData",
+                    "description": "bookingId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "careGiverId",
+                    "in": "formData",
+                    "description": "careGiverId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "amount",
+                    "in": "formData",
+                    "description": "amount is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "currency",
+                    "in": "formData",
+                    "description": "currency is required[usd]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "paymentMode",
+                    "in": "formData",
+                    "description": "paymentMode is required [creditcard]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "amount",
+                    "in": "formData",
+                    "description": "amount is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/captureAPayment": {
+        "post": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "captureAPayment",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Api to capture an amount",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "transactionId",
+                    "in": "formData",
+                    "description": "transactionId is required [ch_xxxxxxxx]",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "amount",
+                    "in": "formData",
+                    "description": "amount is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/transactionsList": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "transactionsList",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Transactions List",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "type",
+                    "in": "query",
+                    "description": "type is required [1 - user, 2 - caregiver]",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "count",
+                    "in": "query",
+                    "description": "count - for pagination",
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "lastId",
+                    "in": "query",
+                    "description": "lastId - for pagination",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/notifications": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "notifications",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Notifications List",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "count",
+                    "in": "query",
+                    "description": "count - for pagination",
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "lastId",
+                    "in": "query",
+                    "description": "lastId - for pagination",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+
+    "/api/addFeedback": {
+        "post": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "addFeedback",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "Add feedback",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "careGiverId",
+                    "in": "formData",
+                    "description": "careGiverId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "userId",
+                    "in": "formData",
+                    "description": "userId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "feedbackToUser",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "ratingToUser",
+                    "in": "formData",
+                    "description": "ratingToUser is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "feedbackToCareGiver",
+                    "in": "formData",
+                    "description": "OPTIONAL",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "ratingToCareGiver",
+                    "in": "formData",
+                    "description": "ratingToCareGiver is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "bookingId",
+                    "in": "formData",
+                    "description": "bookingId is required",
+                    "required": true,
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/feedbackList": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "feedbackList",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "feedback List",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "type",
+                    "in": "query",
+                    "description": "type is required [1 - user's list, 2 - caregiver's list]",
+                    "required": true,
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "count",
+                    "in": "query",
+                    "description": "count - for pagination",
+                    "type": "number",
+                    "value": ""
+                },
+                {
+                    "name": "lastId",
+                    "in": "query",
+                    "description": "lastId - for pagination",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+    "/api/deleteFeedback": {
+        "put": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "deleteFeedback",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "delete feedback",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "feedbackId",
+                    "in": "formData",
+                    "description": "feedbackId is required",
+                    "required": true,
+                    "type": "number",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    },
+
+
+
+    "/api/currentActiveBooking": {
+        "get": {
+            "x-swagger-router-controller": "middleware-name1",
+            "operationId": "currentActiveBooking",
+            "tags": [
+                "2 User APIs - Require Authentication"
+            ],
+            "description": "current Active Booking",
+            "parameters": [
+                {
+                    "name": "authorization",
+                    "in": "header",
+                    "description": "authorization token",
+                    "required": true,
+                    "value": ""
+                },
+                {
+                    "name": "language",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "enum": [
+                        "en"
+                    ],
+                    "value": "en"
+                },
+                {
+                    "name": "role",
+                    "in": "query",
+                    "description": "role is required [1 - user, 2 - caregiver]",
+                    "required": true,
+                    "type": "number",
+                    "value": ""
+                }
+            ],
+            "responses": {}
+        }
+    }
+  }
+
+}

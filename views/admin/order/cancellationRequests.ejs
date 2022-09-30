@@ -1,0 +1,76 @@
+<%- include('../partials/header'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-md datatable" >              
+                  <thead>
+                    <tr>
+                      <%
+                          if (headerColumns.length > 0) {
+                            headerColumns.forEach((column, index) => {
+                        %>
+                      <th><%- column; %></th>
+                      <%
+                            });
+                        %>
+
+                      <%
+                          }
+                        %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%
+                      if (data.length > 0) {
+                        data.forEach(row => {
+                    %>
+                    <tr>
+                      <%
+                        if (row.length > 0) {
+                          row.forEach(column => {
+                      %>
+                      <td><%- column; %></td>
+                      <%
+                          });
+                        }
+                      %>
+                    </tr>
+                    <%
+                        });
+                      }
+                    %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+  });
+</script>

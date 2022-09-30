@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <title><%= appName; %></title>
+
+    <meta property="al:ios:url" content="<%= appLink; %>" />
+    <meta property="al:android:url" content="<%= appLink; %>" />
+
+
+    <meta property="al:ios:app_store_id" content="1392857337" />
+    <!-- 1392857337 -->
+
+    <meta property="al:ios:app_name" content="1624688047" />
+    <meta
+      property="og:title"
+      content="<%= appName; %>"
+    />
+    
+    <meta property="og:type" content="<%= appName; %>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <!--<meta property="al:web:should_fallback" content="true" />
+		<hta:application applicationname="HTA Test" scroll="yes" singleinstance="yes">
+		 implement javascript on web page that first first tries to open the deep link
+			1. if user has app installed, then they would be redirected to open the app to specified screen
+			2. if user doesn't have app installed, then their browser wouldn't recognize the URL scheme
+			and app wouldn't open since it's not installed. In 1 second (1000 milliseconds) user is redirected
+			to download app from app store.
+    -->
+
+    <link
+      rel="stylesheet"
+      href="../bower_components/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style>
+      /* .container { */
+        /* margin-top: 300px; */
+      /* } */
+    </style>
+
+    <script>
+      function htmlDecode(input) {
+        var e = document.createElement("div");
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+      }
+
+      const useragent = JSON.parse(
+        htmlDecode("<%= JSON.stringify(useragent) %>")
+      );
+      const appLink = "<%= appLink; %>";
+      const storeLink = "<%= storeLink; %>";
+      const shareUrl = "<%= shareUrl; %>";
+      // console.log(useragent, '===================+>useragent');
+      // console.log(appLink, '===================+>appLink');
+      // console.log(storeLink, '===================+>pagestoreLink');
+
+      (function() {
+        var app = {
+          launchApp: function() {
+          // console.log(useragent);return
+            if (!useragent.isMobile) {
+            // alert('is mobile') 
+              // window.parent.location.href = appLink;
+              // window.parent.location.href = appLink;
+              this.openWebApp();
+            } else {
+              //console.log(useragent,"is web")
+             // alert(useragent,'is web')
+              window.parent.location.href =appLink
+             // return
+             // this.openWebApp();
+           setTimeout(this.openWebApp, 1);
+               
+             
+            }
+            //setTimeout();
+          },
+          openWebApp: function() {
+           // alert(storeLink, '===============>storeLink');
+            window.parent.location.href = storeLink;
+          }
+        };
+        setTimeout(app.launchApp(), 100);
+        //app.launchApp();
+      })();
+    </script>
+  </head>
+  <body>
+    <span class="container">
+      <center>
+      
+        <div>
+          <b>
+            <%= appName; %>
+          </b>
+        </div>
+
+       
+        <br />
+        <br />
+        <a class="btn btn-primary" href="<%= storeLink %>">
+          Store Download Link</a
+        >
+        <!-- <a class="btn btn-primary" href="<%= appLink %>"> Open App</a> -->
+      </center>
+    </span>
+  </body>
+</html>

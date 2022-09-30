@@ -1,0 +1,423 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: 'futura medium_bt';
+	src: url('../fonts/futura medium_bt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'futura_light_bt';
+	src: url('../fonts/futura_light_bt.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-size: 16px;
+}
+
+a:hover,
+a:focus {
+	color: #fff;
+	text-decoration: none;
+}
+
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'futura medium_bt';
+}
+
+p {
+	font-size: 16px;
+}
+
+section{
+	float:left;
+	width:100%;
+	padding:70px 0px;
+}
+
+#navbar {
+	background: #0e1c75;
+	color: #fff;
+	position: relative;
+}
+
+.navbar-brand {
+	position: absolute;
+	top: 10px;
+}
+.navbar-nav.ml-auto {
+	padding: 20px 0px;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+	text-transform: uppercase;
+	padding: 6px 20px;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+	text-transform: uppercase;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #fff;
+}
+.nav-link.active {
+  color: #fff !important;
+  position:relative;
+}
+.nav-link.active::after {
+	height: 2px;
+	width: calc(100% - 40px);
+	background: #fff;
+	position: absolute;
+	content: "";
+	left: 20px;
+	bottom: -6px;
+	border-radius: 1px;
+}
+.top_banner {
+	background: url(../images/top.png);
+	padding: 160px 0px;
+	color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.top_banner .title3 {
+	font-size: 60px;
+	margin-bottom: 20px;
+}
+
+.top_banner p {
+	/* text-transform: uppercase; */
+	font-size: 18px;
+	width: 50%;
+	margin: 0 auto;
+	line-height: 27px;
+}
+.How_its h3 {
+	font-size: 26px;
+}
+
+.How_its h2 {
+	font-size: 40px;
+	color: #0e1c75;
+}
+.How_its p {
+	color: #999999;
+	font-size: 21px;
+	margin-top: 15px;
+}
+.about_me h3 {
+	font-size: 26px;
+	margin-bottom: 20px;
+}
+.contact_form {
+    padding-left: 40px;
+    margin-top: 20px;
+}
+.contact_lists h3 a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.about_me h2 {
+	font-size: 40px;
+	color: #0e1c75;
+}
+.about_me video {
+	width: 100%;
+}
+.about_me p {
+	color: #999999;
+	line-height: 1.5;
+	font-size: 16px;
+	margin-top: 15px;
+}
+.cate_gories_main{
+	background:#e6e6e6;
+}
+.cate_gories h3 {
+	text-align: center;
+	background: #ffffff;
+	padding: 14px 10px;
+	border-radius: 13px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	width: 80%;
+	display: inline-block;
+	box-shadow: 0px 0px 2px #ddd;
+	font-size: 22px;
+}
+.cate_gories {
+	text-align: center;
+}
+.apps h2 {
+	font-size: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #0c1d8f;
+}
+
+.apps h5 {
+	font-size: 35px;
+	margin: 2px 0px 10px;
+	color: #000;
+	font-weight: bold;
+}
+.apps p {
+	font-size: 19px;
+	font-weight: normal;
+	width: 80%;
+	margin-bottom: 40px;
+	font-family: 'futura_light_bt';
+	margin-top: 20px;
+	line-height: 24px;
+}
+.apps1 > img {
+	width: 90%;
+}
+
+.contact_lists {
+	background: url(../images/add.png);
+	padding: 160px 0px;
+	color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.meets {
+	background: url(../images/meet.png);
+	padding: 160px 0px;
+	color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.meet_boys .title3 {
+	font-size: 30px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+.meet_boys p {
+	font-size: 19px;
+	line-height: 26px;
+	color: #add6e0;
+}
+.contact_lists h3 img {
+	margin-right: 21px;
+}
+.contact_lists h3 {
+	display: flex;
+	font-size: 27px;
+	margin: 50px 0px;
+	align-items: center;
+}
+.contact_lists {
+	background: url(../images/add.png);
+	padding: 110px 40px;
+	color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.contact_lists h2 {
+	font-size: 33px;
+}
+.contact_form h2 {
+	font-size: 32px;
+	margin-bottom: 30px;
+}
+.contact_form .form-control {
+	background: #d9d9d9;
+	margin-bottom: 30px;
+	height: 60px;
+	border-radius: 18px;
+	padding: 0px 30px;
+}
+.contact_form textarea.form-control {
+	height: 160px;
+	padding: 20px 20px;
+}
+.contact_form .form-control::placeholder{
+	color:#999;
+}
+
+.btn-load.btn-lg.submit {
+    background: #1e236e;
+    color: #fff;
+    border: none;
+    padding: 10px 60px;
+    font-size: 21px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px #1a236f;
+}
+.contact {
+	border-bottom: 50px solid #000;
+}
+.contact_form p button {
+	background: #1e236e;
+	color: #fff;
+	border: none;
+	padding: 10px 60px;
+	font-size: 21px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 7px #1a236f;
+}
+.contact_form p {
+	text-align: center;
+}
+
+.How_its_p {
+    float: left;
+    width: 25%;
+    text-align: center;
+    padding: 40px 10px;
+    position: relative;
+    color: #777;
+}
+	.top1::after {
+	position: absolute;
+	content: "";
+	background: url(../images/1.png);
+	height: 30px;
+	width: 30px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	top: -30px;
+	transform: translate(-50%);
+	}
+	.top2::after {
+	position: absolute;
+	content: "";
+	background: url(../images/2.png);
+	height: 30px;
+	width: 30px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	top: -30px;
+	transform: translate(-50%);
+	}
+	.top3::after {
+	position: absolute;
+	content: "";
+	background: url(../images/3.png);
+	height: 16px;
+	width: 16px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	top: -19px;
+	transform: translate(-50%);
+	}
+	
+	.How_its_p_top::after {
+	position: absolute;
+	content: "";
+	height: 4px;
+	width: 75%;
+	background: #0f1c75;
+	left: 130px;
+	top: -14px;
+	z-index: -1;
+	}
+	.How_its_p_top {
+	float: left;
+	width: 100%;
+	margin: 40px 0px;
+	position: relative;
+	}
+
+
+@media only screen and (max-width: 815px) {
+
+.navbar-light .navbar-toggler {
+	background: #fff;
+	float: right;
+	margin-left: auto;
+}
+.navbar-brand {
+	position: relative;
+	top: 0px;
+	width: 50px;
+}
+.navbar-light .navbar-nav .nav-link {
+	margin-bottom: 20px;
+}
+.contact_lists h3 {
+	font-size: 14px;
+}
+}
+
+@media only screen and (max-width: 767px) {
+	.apps1 {
+	margin-top: 40px;
+}
+.top_banner p {
+	width: 80%;
+}
+.contact_form {
+	margin-top: 40px;
+}
+.about_me video {
+	margin-top: 40px;
+}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

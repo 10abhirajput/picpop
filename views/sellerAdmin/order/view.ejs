@@ -1,0 +1,255 @@
+<%- include('../partials/header'); %>
+<%= console.log(order, '==================>order'); %>
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body animate__animated  animate__backInUp">
+
+      <div class="row">
+        <div class="col-8 offset-2">
+          <div class="card">
+            <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div>
+            <div class="card-body">
+              <form class="form_advanced_validation" method="POST" autocomplete="off" enctype="multipart/form-data">
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Order ID</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-fingerprint"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.orderNo; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Order Status</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-check"></i>
+                          </div>
+                        </div>
+                        <select class="form-control changeOrderRequestStatus" model="<%=model%>"
+                          model_title="<%=modelTitle%>" model_id="<%=order.id%>" field="orderStatus"
+                          style="background-color: <%=orderStatus[order.orderStatus].backgroundCssColor;%>; color: #fff; font-weight: 600;">
+                          <%
+                            for (let status in orderStatus) {
+                          %>
+                          <option value="<%=status%>" <%= status==order.orderStatus ? 'selected' : ''; %>
+                            style="background: <%= orderStatus[status].backgroundCssColor %>; color: #fff; font-weight: 600;">
+                            <%=orderStatus[status].value%></option>
+                          <%
+                            }
+                          %>
+                        </select>
+                        <!-- <input type="text" class="form-control" name="name" value="<%= order.orderStatusText; %>" required
+                          disabled> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Customer</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-user"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name"
+                          value="<%= order.customer.userDetail.name; %>" required disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Payment Method</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-money-bill"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.paymentMethodText; %>"
+                          required disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Delivery Date</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-calendar-alt"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.deliveryDate; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Delivery Slot</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-clock"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.deliverySlot; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Items</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-balance-scale"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.orderItems.length; %>"
+                          required disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Total Net Amount</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.netAmount; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Total Tax Charged</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.taxCharged; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Total Shipping Charges</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.shippingCharges; %>"
+                          required disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Admin Commission</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.adminCommission; %>"
+                          required disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Total</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-dollar-sign"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control" name="name" value="<%= order.total; %>" required
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <%- include('orderItems'); %>
+
+                <div class="form-group row mb-4">
+                  <div class="col-sm-12 col-md-7 offset-4">
+                    <input type="hidden" class="form-control" name="id" value="<%= order.id %>">
+                    <button type="button" class="btn btn-secondary cancel_btn">Back</button>
+                    <!-- <button type="submit" class="btn btn-primary">Update</button> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+
+
+
+  });
+</script>

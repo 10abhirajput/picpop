@@ -1,0 +1,40 @@
+<form class="updateSettings" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Tax Setting</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Tax Category</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="tax_category"
+                        value="<%= settings['tax_category']; %>" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tax Percentage</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="tax_percentage"
+                        value="<%= settings['tax_percentage']; %>" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="moduleName" value="Tax Setting" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>

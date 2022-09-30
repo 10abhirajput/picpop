@@ -1,0 +1,471 @@
+<%- include('../partials/header'); %>
+
+<style>
+  .hidden {
+    display: none !important;
+  }
+
+
+  .select2 {
+    width: 100% !important;
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  .categorySelectBox {
+    height: 200px !important;
+  }
+
+  .nextIcon {
+    height: 75px;
+    float: left;
+    margin-top: 78px;
+  }
+
+  .centerProductCatItem {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 227px;
+  }
+</style>
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1 id="animated_box"><%= currentModule; %></h1>
+    </div>
+
+    <div class="section-body animate__animated  animate__backInUp">
+
+      <div class="row">
+        <div class="col-8 offset-2">
+          <div class="card">
+            <div class="card-header">
+              <h4><%= currentSubModule %></h4>
+            </div>
+            <div class="card-body">
+              <form id="selectProductCategory" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <div class="categorySelectBoxContainer">
+                  <div class="form-group col-3" style="float: left;">
+                    <label> Select Category</label>
+                    <div class="input-group">
+                      <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-list"></i>
+                      </div>
+                    </div> -->
+                      <select name="categoryId" class="form-control categorySelectBox" size="5" required>
+                        <!-- <option value="">Select Category</option> -->
+                        <% rootCategories.forEach(category => { %>
+                        <option value="<%= category.id; %>">
+                          <%= category.name; %>
+                        </option>
+                        <% }) %>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+
+
+
+              <form id="productAddEditForm" class="form_advanced_validation hidden"
+                action="/admin/product/addUpdateProduct" method="POST" autocomplete="off"
+                enctype="multipart/form-data">
+
+                <!-- <div class="form-group">
+                  <label> Category</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-list"></i>
+                      </div>
+                    </div>
+                    <select name="categoryId" class="form-control select2" required>
+                      <option value="">Select Category</option>
+                      <% categories.forEach(category => { %>
+                      <option value="<%= category.id; %>">
+                        <%= category.name; %>
+                      </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div> -->
+
+                <div class="form-group">
+                  <label>Name</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-cube"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="name" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Image</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-image"></i>
+                      </div>
+                    </div> -->
+                    <div id="image-preview" class="image-preview"
+                      style="background-image: url('/uploads/default/default_image.jpg'); background-size: cover; background-position: center center;">
+                      <label for="image-upload" id="image-label">Choose File</label>
+                      <input type="file" name="image" id="image-upload" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Description</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-cube"></i>
+                      </div>
+                    </div> -->
+                    <textarea class="form-control" name="description" style="min-height: 100px;" required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Brand Name</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-cube"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="brandName" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Minimum Selling Price</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-dollar-sign"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="minimumSellingPrice" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Percentage Discount</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-percent"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="percentageDiscount" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Length</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-ruler-vertical"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="length" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Width</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-ruler-vertical"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="width" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Height</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-ruler-vertical"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="height" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Dimensions Unit</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-ruler-vertical"></i>
+                      </div>
+                    </div> -->
+                    <select name="dimensionsUnit" class="form-control select2" >
+                      <option value="">Select Dimensions Unit</option>
+                      <option value="0">
+                        Centimeters</option>
+                      <option value="1">
+                        Inches</option>
+                      <option value="2">
+                        Meters</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Weight</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-weight"></i>
+                      </div>
+                    </div> -->
+                    <input type="text" class="form-control" name="weight" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Weight Unit</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-weight"></i>
+                      </div>
+                    </div> -->
+                    <select name="weightUnit" class="form-control select2" >
+                      <option value="">Select Weight Unit</option>
+                      <option value="0">
+                        KG</option>
+                      <option value="1">
+                        Pounds</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label> Tax Category</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-percent"></i>
+                      </div>
+                    </div> -->
+                    <select name="taxCategoryId" class="form-control select2" >
+                      <option value="">Select Tax Category</option>
+                      <% taxCategories.forEach(taxCategory => { %>
+                      <option value="<%= taxCategory.id; %>">
+                        <%= taxCategory.taxCategory; %>
+                      </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Tags</label>
+                  <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-tags"></i>
+                      </div>
+                    </div> -->
+                    <select name="tags" class="form-control select2_tag" multiple >
+                    </select>
+                  </div>
+                </div>
+
+                <div class="product_specification_container">
+                  <div class="row">
+                    <div class="col-5 col-md-5 col-lg-5">
+                      <div class="form-group">
+                        <label>Product Specification Name</label>
+
+                        <div class="input-group">
+                          <!-- <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="fas fa-signature"></i>
+                            </div>
+                          </div> -->
+                          <input type="text" class="form-control" name="specificationName" value="" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-5 col-md-5 col-lg-5">
+                      <label>Product Specification Value</label>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <!-- <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="fas fa-signature"></i>
+                            </div>
+                          </div> -->
+                          <input type="text" class="form-control" name="speecificationValue" value="" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-2 col-md-2 col-lg-2">
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <a href="javascript:void(0)" class="btn btn-icon btn-primary add_product_specification"
+                    style="width: calc(83.3% + -12px);"><i class="fas fa-plus"></i></a>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+                <div class="form-group row mb-4">
+                  <div class="col-sm-12 col-md-7 offset-4">
+                    <input type="hidden" class="form-control" name="status" value="1">
+                    <input id="categoryId" type="hidden" class="form-control" name="categoryId" value="">
+
+                    <button type="button" class="btn btn-secondary cancel_btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+
+<%- include('../partials/footer'); %>
+
+<script>
+  $(document).ready(function () {
+    $(document.body).on('change', '.categorySelectBox', function () {
+      const id = $(this).val();
+
+      $.ajax({
+        type: 'POST',
+        url: '/admin/category/categoryBasedChildCategories',
+        headers: {
+          'securitykey': '__lyft_beauty',
+          // 'securitykey': securityKey,
+        },
+        data: {
+          id
+        },
+        beforeSend: () => {
+          $(this).attr('disabled', 'true');
+        },
+        success: (response) => {
+          console.log(response, '==============>response');
+          if (!response.success) return;
+
+          const categories = response.body;
+          $(this).closest('.form-group').nextAll().remove();
+
+          let html = '';
+          if (categories.length > 0) {
+
+            html += '<img class="nextIcon" src="/uploads/default/next_icon.png" />';
+
+            html += `<div class="form-group col-3" style="float: left;">
+                          <label>&nbsp;</label>
+                            <div class="input-group">
+             
+                              <select name="categoryId" class="form-control categorySelectBox" size="5" required>`;
+            categories.forEach(category => {
+              html += `<option value="${category.id}">${category.name}</option>`;
+            });
+            html += `</select>
+                    </div>
+                  </div>
+            `;
+
+          } else {
+            // html += `<button type="submit" class="btn btn-primary">Submit</button>`;
+            html += `<div class="form-group col-3 centerProductCatItem">
+                          <label>&nbsp;</label>
+                            <div class="input-group">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                              
+                    </div>
+                  </div>
+            `;
+          }
+
+          $('.categorySelectBoxContainer').append(html);
+
+          setTimeout(() => {
+            $(this).removeAttr('disabled');
+
+          }, 100);
+        }
+      });
+    });
+
+    $(document.body).on('submit', '#selectProductCategory', function (e) {
+      e.preventDefault();
+      // let formData = new FormData($(this)[0]);
+      // console.log(formData, '==============>formData');
+
+      $(this).addClass('hidden');
+
+      const categoryId = $('.categorySelectBox').last().val();
+
+      // alert(categoryId);
+      $('#categoryId').val(categoryId);
+      // $(".select2").select2();
+      $(".select2_tag").select2({
+        tags: true
+      });
+      // $(".select2_tags").select2({
+      //   tags: true
+      // });
+
+      $('#productAddEditForm').removeClass('hidden');
+
+      // $.ajax({
+      //     url: '/sellerAdmin/user/changeEmailSetting',
+      //     data: formData,
+      //     processData: false,
+      //     contentType: false,
+      //     type: 'POST',
+      //     success: function (response) {
+      //         console.log(response, '========>response');
+      //         if (response.success) {
+      //             setTimeout(function () {
+      //                 window.location.reload();
+      //             }, 1000);
+      //         }
+
+      //         iziToast[response.success ? 'success' : 'error']({
+      //             title: response.message,
+      //             position: 'topRight'
+      //         });
+      //     }
+      // });
+    });
+
+  });
+</script>

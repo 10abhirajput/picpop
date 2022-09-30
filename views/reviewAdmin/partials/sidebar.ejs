@@ -1,0 +1,83 @@
+<%
+
+    const allowedRole = 4;
+
+%>
+
+<div class="main-sidebar">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="/admin/">
+                <img id="brand_logo_dashboard" src="<%= appLogoUrl %>" alt="logo" width="250" class="shadow-light">
+                <!-- <%= appName; %> -->
+            </a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="/admin/"><%= appShortName; %></a>
+        </div>
+        <ul class="sidebar-menu">
+            <!-- <li class="menu-header">Dashboard</li> -->
+
+            <%
+                let j = 0;
+                for (let i in modules[moduleRoles[adminData.role]]) {
+                    if (colorClasses.length == j) j = 0;          
+                    const module = modules[moduleRoles[adminData.role]][i];
+                    if (module.hasOwnProperty('sidebar') && module.sidebar) {
+                        if ( (module.hasOwnProperty('link') && typeof(module.link) === 'string') && (adminData.role == allowedRole || module.hasOwnProperty('permissions') && !module.permissions || (adminData.role == allowedRole && permissions.hasOwnProperty(i) && permissions[i].length > 0) ) ) {
+
+                            
+            %>
+
+            <li class="<%= currentModule.split(' ').join('').toLowerCase() == i.toLowerCase() ? 'active' : ''; %>">
+                <a class="nav-link <%= module.hasOwnProperty('sidebarAnchorClass') ? module.sidebarAnchorClass : '' %>"
+                    href="<%= module.hasOwnProperty('link') ? module.link : '' %>">
+                    <i class="<%= module.hasOwnProperty('icon') ? module.icon : '' %> text-<%= colorClasses[j]; %>"></i>
+                    <span><%= module.hasOwnProperty('title') ? module.title : '' %></span>
+                </a>
+            </li>
+            <%
+                } else if (module.hasOwnProperty('link') && Array.isArray(module.link) && module.link.length > 0 && (adminData.role == allowedRole ||
+                module.hasOwnProperty('permissions') && !module.permissions || (adminData.role == allowedRole && permissions.hasOwnProperty(i) && permissions[i].length > 0) )) {
+
+                    const liPermission = [i.toLowerCase()];
+                    module.link.forEach(link => {
+                        liPermission.push(link.subModule);
+                    });
+                    
+            %>
+
+            <li
+                class="nav-item dropdown <%= liPermission.includes(currentModule.toLowerCase().split(' ').join('')) ? 'active' : ''; %>">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="<%= module.hasOwnProperty('icon') ? module.icon : '' %> text-<%= colorClasses[j]; %>"></i>
+                    <span><%= module.hasOwnProperty('title') ? module.title : '' %></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <%
+                        module.link.forEach(link => {
+                            console.log(currentSubModuleSidebar.toLowerCase() == link.subModule.toLowerCase(), `${i}`)
+                            console.log(currentSubModuleSidebar.toLowerCase(), `${i}`)
+                            console.log(link.subModule.toLowerCase(), `${i}`)
+                    %>
+                    <li
+                        class="<%= currentSubModuleSidebar.toLowerCase() == link.subModule.toLowerCase() ? 'active' : ''; %>">
+                        <a class="nav-link" href="<%= link.link; %>"><%= link.title; %></a>
+                    </li>
+                    <%
+                        });
+                    %>
+                </ul>
+            </li>
+            <%
+
+                        }
+                    }
+                    j++
+                }
+            %>
+
+
+        </ul>
+    </aside>
+</div>

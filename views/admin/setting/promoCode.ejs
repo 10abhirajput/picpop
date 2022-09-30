@@ -1,0 +1,66 @@
+<form class="updateSettings" method="POST" autocomplete="off" enctype="multipart/form-data">
+    <div class="card" id="settings-card">
+        <div class="card-header">
+            <h4>Promo Code Setting</h4>
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label>Enable/Disable Promo Code</label>
+                <div class="input-group">
+                    <div class="form-group">
+                        <label class="custom-switch mt-2">
+                          <input type="checkbox" name="enable_disable_referral_system" class="custom-switch-input" <%= settings['enable_disable_referral_system'] == 1 ? 'checked' : ''; %> >
+                          <span class="custom-switch-indicator"></span>
+                          <!-- <span class="custom-switch-description">I agree with terms and conditions</span> -->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Apply on Category</label>
+                <div class="input-group">
+                    <div class="form-group">
+                        <label class="custom-switch mt-2">
+                          <input type="checkbox" name="apply_on_category" class="custom-switch-input" <%= settings['apply_on_category'] == 1 ? 'checked' : ''; %> >
+                          <span class="custom-switch-indicator"></span>
+                          <!-- <span class="custom-switch-description">I agree with terms and conditions</span> -->
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Promo Code Discount</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="promo_code_discount_value"
+                        value="<%= settings['promo_code_discount_value']; %>" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Duration of Promo Code</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" name="duration_of_promo_code"
+                        value="<%= settings['duration_of_promo_code']; %>" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer bg-whitesmoke text-md-right">
+            <input type="hidden" name="moduleName" value="Promo Code Setting" />
+            <button type="submit" class="btn btn-primary" id="save-btn">Save Changes</button>
+        </div>
+    </div>
+</form>
